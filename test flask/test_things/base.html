@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 定义接口，给这个接口取一个名字叫 title -->
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        .nav ul{
+            overflow: hidden;
+        }
+        .nav ul li{
+            float: left;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <ul>
+            <li>首页</li>
+            <li>课程详情</li>
+            <li>关于我们</li>
+        </ul>
+    </nav>
+    
+    <!-- 定义接口，给这个接口取一个名字叫 content-->
+    {% block content %}
+        <p style="background: red">这是父模板中的代码</p>
+    {% endblock %}
+    
+    <footer>
+        <h1>footer</h1>
+    </footer>
+
+</body>
+</html>

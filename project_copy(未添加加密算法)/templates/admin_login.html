@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>虚拟网上银行</title>
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <div id="maxbox" style="margin-top: 120px; margin-right: auto;">
+        <h1>虚拟网上银行</h1>
+        <h2>请用管理员账号登录</h2>
+        <div class="inputbox">
+            <form action="/admin_login" method="post">
+                <div class="inputText">
+                    <span class="iconfont icon-mine"></span>
+                    <input class="username" type="text" placeholder="用户名" name="username" style="color:white" />
+                </div>
+                <div class="inputText">
+                    <span class="iconfont icon-lock"></span>
+                    <input type="password" placeholder="密码" name="password" style="color:white" />
+                    <br>
+                    <input class="remember" name="remember" type="checkbox" value="" checked="checked">
+                    <span style="color:rgb(255, 255, 255)">记住我</span>
+                </div>
+                <div class="button-container">
+                    <input class="inputButton login-button" type="submit" value="管理员登录" />
+                    <a href="/login" class="inputButton login-button">返回登录</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 模态框部分 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="messageText"></p>
+        </div>
+    </div>
+
+    <!-- 添加显示后端消息的脚本 -->
+    <script>
+        // 从后端返回的字符（模拟的示例）
+        var msgFromBackend = "{{msg}}";
+
+        // 获取模态框和消息元素
+        var modal = document.getElementById("myModal");
+        var messageText = document.getElementById("messageText");
+
+        // 如果后端返回了消息，显示模态框并设置消息内容
+        if (msgFromBackend) {
+            messageText.textContent = msgFromBackend;
+            modal.style.display = "block";
+        }
+
+        // 关闭模态框的函数
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

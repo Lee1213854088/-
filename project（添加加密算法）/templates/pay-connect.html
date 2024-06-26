@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>支付页</title>
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <div id="maxbox" style="margin-top: 120px; margin-right: auto;">
+        <h1>输入您的六位数支付密码</h1>
+        <div class="inputbox">
+            <form action="/pay_connect" method="post">
+                <div class="inputText">
+                    <span class="iconfont icon-lock"></span>
+                    <input type="password" placeholder="密码" name="pay_pw" style="color:white; margin-top: 60px; " maxlength="6" />
+                    <br>
+                </div>
+                <div class="button-container" style="margin-left: 230px;">
+                    <input class="inputButton login-button" type="submit" value="确认支付" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 模态框部分 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="messageText"></p>
+            <button class="inputButton login-button" id="returnButton" onclick="returnToPage()" style="margin-left: 150px;">返回</button>
+        </div>
+    </div>
+
+    <!-- 添加显示后端消息的脚本 -->
+    <script>
+        // 从后端返回的字符（模拟的示例）
+        var msgFromBackend = "{{msg}}";
+
+        // 获取模态框和消息元素
+        var modal = document.getElementById("myModal");
+        var messageText = document.getElementById("messageText");
+        var returnButton = document.getElementById("returnButton");
+
+        // 如果后端返回了消息，显示模态框并设置消息内容
+        if (msgFromBackend) {
+            messageText.textContent = msgFromBackend;
+            modal.style.display = "block";
+
+            // 如果支付成功，显示返回按钮
+            if (msgFromBackend === "支付成功，请返回") {
+                returnButton.style.display = "block";
+            }
+        }
+
+        // 关闭模态框的函数
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // 返回按钮点击事件
+        function returnToPage() {
+            // 这里可以添加跳转页面的逻辑，例如 window.location.href = "your_return_page.html";
+            window.location.href = "http://172.20.10.7:5173/checkout"
+        }
+    </script>
+</body>
+
+</html>

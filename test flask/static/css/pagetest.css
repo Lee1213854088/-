@@ -1,0 +1,136 @@
+    body {background-image:url(./img/bgnew.gif);position:relative;overflow:auto;overflow-x:auto;overflow-y:scroll;padding:0px!important;margin:0px!important;height:100%;width:100%;}
+    .menu{font-family:Arial, Helvetica, sans-serif; font-size:15px; background-image:url(../img/menu_bg.gif);background-repeat:no-repeat; background-position:left;font-weight:bold; color:#A8A87D; height:35px; word-break:keep-all;text-align:right;}
+    .menu a:link{font-family:Arial, Helvetica, sans-serif; font-size:15px; font-weight:bold; color:#FFFFFF; word-break:keep-all;text-decoration:none;text-align:right;text-indent:9px;}
+    .menu a:hover {font-family:Arial, Helvetica, sans-serif; font-size:15px; font-weight:bold; color:#FFFF99; word-break:keep-all;text-decoration:none;text-align:right;text-indent:9px;}
+    .menu a:active {font-family:Arial, Helvetica, sans-serif; font-size:15px; font-weight:bold; color:#FFFF99; word-break:keep-all;text-decoration:none;text-align:right;text-indent:9px;}
+    .menu a:visited {font-family:Arial, Helvetica, sans-serif; font-size:15px; font-weight:bold; color:#FFCC00; word-break:keep-all;text-decoration:none;text-align:right;text-indent:9px;}
+
+    .link2 {font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#333;text-decoration:none;}
+    .link2 a:link{font-family:Arial, Helvetica, sans-serif; font-size:13px; color:blue;text-decoration:none;}
+    .link2 a:hover{font-family:Arial, Helvetica, sans-serif; font-size:13px; color:brown;text-decoration:none;}
+    .L_13 {font-family:Arial, Helvetica, sans-serif; font-size:13px; color:brown;word-break:keep-all;padding:8px 5px 5px 5px;text-align:right}
+    .L_2 {font-family:Arial, Helvetica, sans-serif; padding:3px 3px 3px 2px;font-size:13px; }
+    .LIST_13 {font-family:Arial, Helvetica, sans-serif;font-size:13px;color:#333}
+    
+    .w_yellow{font-family:Arial, Helvetica, sans-serif; font-size:15px; background-color:#ffd325; color:#000;line-height:24px; word-break:keep-all;text-align:center;width:100px}
+    .w_white{padding:5px;width:600px;background-color:white;}
+    .topic{font-family:Arial, Helvetica, sans-serif; font-size:16px;font-weight:bold; color:#456200; height:52px; word-break:keep-all;text-align:left;padding-left:60px;}
+    .info{font-family:Arial, Helvetica, sans-serif; font-size:13px;color:#333; word-break:keep-all;}
+    a.linkn:hover {font-family:Arial, Helvetica, sans-serif; font-size:13px;font-weight:bold; color:#ee0000;text-decoration:none;}
+    a.linkn:link   {font-family:Arial, Helvetica, sans-serif; font-size:13px;font-weight:bold; color:#444a00;text-decoration:none;}
+    a.linkn:active  {font-family:Arial, Helvetica, sans-serif; font-size:13px;font-weight:bold; color:#ee0000;text-decoration:none;}
+    a.linkn:visited {font-family:Arial, Helvetica, sans-serif; font-size:13px;font-weight:bold; color:#ee0000;text-decoration:none;}
+    
+    .msg {font-family:Arial, Helvetica, sans-serif; font-size:13px; color:red;}
+    
+    table.niceline {background-color:#cccccc;font-family:Arial, Helvetica, sans-serif; font-size:13px;width:95%;padding:2px 5px;color:#333;}
+    th {white-space:nowrap;background-color:khaki;padding:2px 5px;text-align:left;font-size:13px; }
+    .th1 {height:25px;font-size:15px;font-weight:bold ;background-color:F0E6BC;text-align:center;padding-top:4px;font-family:Arial, Helvetica, sans-serif; }
+    .t1 {font-size:11pt;font-weight:bold;color:orangered;padding-top:2pt;font-family:Arial, Helvetica, sans-serif; }
+    .tdc0 {font-size:9pt;color:black;font-family:Arial, Helvetica, sans-serif; }
+    .tdc1 {font-family:Arial, Helvetica, sans-serif;line-height:14pt;font-size:13px;color:#336c00;font-weight:bold;vertical-align:top;text-align:left; padding-top:3pt;}
+    .tdc1 a:link{font-family:Arial, Helvetica, sans-serif;line-height:14pt;font-size:13px;color:#336c00;font-weight:bold;vertical-align:top;text-align:left; padding-top:3pt;text-decoration:none;}
+    .tdc1 a:hover{font-family:Arial, Helvetica, sans-serif;line-height:14pt;font-size:13px;color:#993300;font-weight:bold;vertical-align:top;text-align:left; padding-top:3pt;text-decoration:none;}
+    .tdc2 {padding-left:2pt;text-align:left;line-height:14pt;font-family:Arial, Helvetica, sans-serif; font-size:13px;color:#336c00 ;padding-top:3pt;vertical-align:top;}
+    .tdc2 a:link{line-height:14pt;font-size:13px;color:#336c00;vertical-align:top;font-family:Arial, Helvetica, sans-serif; padding-top:3pt;font-weight:bold;text-align:left;text-decoration:none;}
+    .tdc2 a:hover{line-height:14pt;font-size:13px;color:#993300;vertical-align:top;font-family:Arial, Helvetica, sans-serif; padding-top:3pt;font-weight:bold;text-align:left;text-decoration:none;}
+    .tdc2 a:active{line-height:14pt;font-size:13px;color:#993300;vertical-align:top;font-family:Arial, Helvetica, sans-serif; padding-top:3pt;font-weight:bold;text-align:left;text-decoration:none;}
+    .tdc2 a:visited{line-height:14pt;font-size:13px;color:#993300;vertical-align:top;font-family:Arial, Helvetica, sans-serif; padding-top:3pt;font-weight:bold;text-align:left;text-decoration:none;}
+    .tdc3 {padding-left:2pt;text-align:left;line-height:14pt;font-family:Arial, Helvetica, sans-serif; font-size:13px;color:#333;padding-top:3pt;vertical-align:top;}
+    .tdc4 {padding-left:2pt;text-align:left;line-height:14pt;font-family:Arial, Helvetica, sans-serif; font-size:13px;color:333;padding-top:3pt;vertical-align:top;}
+    .tdc5 {padding-left:2pt;text-align:left;line-height:14pt;font-size:13px;color:#333;padding-top:3pt;vertical-align:top;font-family:Arial, Helvetica, sans-serif; }
+    .tdc6 {padding-left:2pt;text-align:left;line-height:14pt;font-size:13px;color:#333;padding-top:3pt;vertical-align:top;padding-bottom:6pt;font-family:Arial, Helvetica, sans-serif; }
+    .tdc7 {text-align:left;line-height:14pt;font-size:13px;color:#333;padding-top:3pt;vertical-align:top;font-family:Arial, Helvetica, sans-serif; }
+    .tdc8 {text-align:left;line-height:14pt;font-size:13px;color:#333;padding-top:3pt;vertical-align:top;font-family:Arial, Helvetica, sans-serif; }
+    .tdc9 {text-align:left;line-height:14pt;width:40px;text-align:left;vertical-align:top;word-break:break-all;font-size:13px;color:#333;font-family:Arial, Helvetica, sans-serif; }
+    th.brief {font-family:Arial, Helvetica, sans-serif; font-size:13px;font-weight:bold; color:#501c00; text-align:center; background-color:#edb665;border-right:2px solid #fff;height:25px}
+    .sf0 {width:15px}
+    
+    .rectd1 {font-family:Arial, Helvetica, sans-serif; font-size:15px;font-weight:bold; color:#444a00;line-height:24px;background-color:#cede77; border:1px solid #fff;width:10%;padding:0 10px;word-break:keep-all;}
+    .rectd2 {font-family:Arial, Helvetica, sans-serif; font-size:15px;color:#333;line-height:24px; border-bottom:1px dotted #ccc;padding-left:5px;word-break:break-all;width:90%}
+    .rectd3 {font-family:Arial, Helvetica, sans-serif; font-size:13px;color:#333;line-height:26px;padding-left:5px;word-break:break-all;}
+    
+    .div2 {
+     WIDTH:100%;
+     SCROLLBAR-FACE-COLOR:beige;
+     VISIBILITY:inherit;
+     SCROLLBAR-HIGHLIGHT-COLOR:ffffff;
+     OVERFLOW:auto;
+     SCROLLBAR-SHADOW-COLOR:burlywood; 
+     SCROLLBAR-3DLIGHT-COLOR:burlywood;
+     SCROLLBAR-ARROW-COLOR:brown;
+     PADDING:5px;
+     SCROLLBAR-TRACK-COLOR:burlywood; 
+     SCROLLBAR-DARKSHADOW-COLOR:burlywood;
+     POSITION:relative;
+     height:638px!important;HEIGHT:100%;
+     }
+    
+    body {position:relative;overflow:auto;overflow-x:auto;overflow-y:scroll;padding:0px!important;margin:0px!important;height:100%;width:100%;}
+    hr {color:white}
+    a.tree1        {  font-size: 11pt; text-decoration: none; color: black;font-weight:bold}
+    a.tree1:hover  {  font-size: 11pt; text-decoration: none; color: firebrick;font-weight:bold }
+    a.tree1:link   {  font-size: 11pt; text-decoration: none; color: black;font-weight:bold}
+    a.tree1:active {  font-size: 11pt; text-decoration: none; color: red;}
+    
+    a:hover {top:1px;left:1px; color: firebrick; text-decoration: underline; font-size: 11pt}
+    a:link { font-size: 11pt; text-decoration: underline; color:0033CC; text-decoration: none;}
+    a:active  {  font-size: 11pt;text-decoration: underline;color: black; text-decoration: none}
+    a:visited {  font-size: 11pt; text-decoration: underline; color: purple; text-decoration: none}
+    
+    
+    a.tree:hover {  top:1px;left:1px; color: firebrick; text-decoration: underline; font-size: 10pt}
+    a.tree:link {  font-size: 10pt; text-decoration: underline; color:0033CC; text-decoration: none;}
+    a.tree:active  {  font-size: 10pt;text-decoration: underline;color: black; text-decoration: none}
+    a.tree:visited {  font-size: 10pt; text-decoration: underline; color: purple; text-decoration: none}
+    
+    input,select,textarea
+    {font-family: arial;color:333333;font-size : 10pt ; border:1px line gray ; border-color:gray}
+    
+    a.sort:hover{  top:1px;left:1px; color: firebrick; text-decoration: none;font-size:10pt}
+    a.sort:link {  font-family: arial; font-size: 10pt;  color: black; text-decoration: none}
+    a.sort:active  {  font-family: arial;font-size: 10pt; color:black ;text-decoration: none}
+    .ltd32 {font-size:11pt;text-indent:1pt}
+    .ltd31 {font-size:11pt;text-indent:1pt}
+    
+    #__sound-pirate {
+      margin: 0 4px 4px 4px;
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+      width: 32px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 2147483647;
+      cursor: pointer;
+      transition: left 1s ease; }
+      #__sound-pirate.__sound-pirate-at-left:hover .__sound-pirate-to-right {
+        display: block; }
+      #__sound-pirate.__sound-pirate-at-right:hover .__sound-pirate-to-left {
+        display: block; }
+      #__sound-pirate.__sound-pirate-at-right {
+        left: calc(100% - 32px - 4px); }
+      #__sound-pirate * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; }
+      #__sound-pirate .__sound-pirate-to-left, #__sound-pirate .__sound-pirate-to-right {
+        display: none;
+        position: absolute;
+        width: 14px;
+        top: 0; }
+      #__sound-pirate .__sound-pirate-to-left {
+        right: 100%; }
+      #__sound-pirate .__sound-pirate-to-right {
+        left: 100%; }
+      #__sound-pirate img {
+        display: block; }
+      #__sound-pirate .__sound-pirate-download {
+        display: block;
+        transform: rotate(0turn);
+        transition: transform 1s ease; }
+
+    .topic2{margin-top:30px;margin-bottom:10px;font-family:Arial, Helvetica, sans-serif;font-weight:bold; color:#FF6600; word-break:keep-all;text-align:left;text-decoration:underline;font-size:14pt;}
+    p.contentG{line-height:1.5;}
+    td#td150{width:150px;}

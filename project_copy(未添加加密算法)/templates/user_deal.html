@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统</title>
+    <link rel="stylesheet" href="../static/css/layui.css">
+</head>
+<body style=" background: url(../static/img/bg8.jpg); background-size: cover;"></body>
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo layui-hide-xs layui-bg-black">虚拟银行管理系统</div>
+    <!-- 头部区域（可配合layui 已有的水平导航） -->
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+        <a href="javascript:; " class="tester-link">
+          tester
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="/sign_out">退出登录</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+        <a href="javascript:;">
+          <i class="layui-icon layui-icon-more-vertical"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+   <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <li class="layui-nav-item"><a href="./user_index">首页</a></li>
+        <li class="layui-nav-item"><a href="./user_manage">个人账号管理</a></li>
+        <li class="layui-nav-item"><a href="./pay">支付密码管理</a></li>
+        <li class="layui-nav-item"><a href="./user_deal">交易记录查询</a></li>
+        <li class="layui-nav-item"><a href="./user_account">账户金额查询</a></li>
+        <li class="layui-nav-item"><a href="./transfer">快速转账</a></li>
+        <li class="layui-nav-item"><a href="./feedback_user">联系我们</a></li>
+      </ul>
+    </div>
+  </div>
+<!--搜索-->
+
+<div class="layui-container" style="width: 1070px;">
+    <form class="layui-form layui-row layui-col-space16" style="margin: 90px 10px 0px">
+      <div style="float: right; margin-right: 400px;">
+        <h1>交易记录查询</h1>
+      </div>
+      <div class="layui-col-md4" style="float: left; margin-left: 0px; width: 200px;">
+        <div class="layui-input-wrap" >
+            <input type="text" name="id" placeholder="请输入商单号" lay-affix="clear" class="layui-input" >
+        </div>
+    </div>
+        <div class="layui-col-md4"  style="width: 200px;">
+            <div class="layui-input-wrap" style="width: 200px;">
+                <div class="layui-input-prefix">
+                    <i class="layui-icon layui-icon-username"></i>
+                </div>
+                <input type="text" name="salesman" value="" placeholder="请输入卖家" class="layui-input" lay-affix="clear" style="width: 200px;">
+            </div>
+        </div>
+        <div class="layui-btn-container layui-col-xs12">
+            <button class="layui-btn layui-btn-sm" lay-submit lay-filter="table-search">查询</button>
+            <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+        </div>
+    </form>
+</div>
+
+<!-- 显示表单模板 -->
+<div class="layui-container"  style="width: 504px; margin-right: 782px;">
+    <table class="layui-hide" id="info"></table>
+</div>
+<script src="../static/js/layui.js"></script>
+
+<script>
+    layui.use(function () {
+        var table = layui.table;
+        var $ = layui.$;
+        var form = layui.form;
+        var layuidata = layui.layuidata;
+        // 已知数据渲染
+        var inst = table.render({
+            elem: '#info',
+            id: 'info',
+            toolbar: '#toolbar',
+            url: 'info_for_user_deal',
+            cols: [
+                [   // 标题栏
+                    {field: 'id', title: '商单号', width: 140, sort: true},
+                    {field: 'salesman', title: '卖家', width: 120},
+                    {field: 'buyer', title: '买家', width: 120},
+                    {field: 'number', title: '金额', width: 120,sort: true},
+                ]],
+            page: true,
+            escape: true,
+            limits: []
+        });
+        // 头部工具栏事件
+        table.on('toolbar(info)', function (obj) {
+            var options = obj.config; // 获取当前表格属性配置项
+            var checkStatus = table.checkStatus(options.id); // 获取选中行相关数据
+
+            // 根据不同的事件名进行相应的操作
+            switch (obj.event) { // 对应模板元素中的 lay-event 属性值
+                case 'add':
+                    window.show_add()
+                    break;
+                case 'delete_many':
+                    window.delete_many(obj)
+                    break;
+            }
+        });
+
+        window.show_add = function () {
+            layer.open({
+                type: 2,
+                title: '新增记录',
+                shadeClose: true,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['900px', '400px'],
+                content: '/info_add'
+            });
+        }
+        
+        form.on('submit(edit-commit)', function (data) {
+            var field = data.field; // 获取表单字段值
+            console.log(field)
+            // 此处可执行 Ajax 等操作
+            field.disable = field?.disable ? true : false
+
+            change_info(field.id, field).then(function (ret) {
+
+                // 提交成功之后的回调
+                if (!ret.code) {
+                    layer.msg(ret.msg, {
+                        icon: 1,
+                        time: 1000,
+                    }, function () {
+                        layer.closeAll('page');
+                        table.reload('info');
+                    });
+                } else {
+                    layer.msg(ret.msg, {
+                        icon: 2,
+                        time: 1000,
+                    });
+                }
+            })
+            return false; // 阻止默认 form 跳转
+        });
+
+        // 搜索提交
+        form.on('submit(table-search)', function (data) {
+            var field = data.field; // 获得表单字段
+            // 执行搜索重载
+            table.reload('info', {
+                page: {
+                    curr: 1, // 重新从第 1 页开始
+                },
+                where: field, // 搜索的字段
+            });
+            return false; // 阻止默认 form 跳转
+        });
+    });
+
+    var loggedInUsername = "{{loggedInUsername}}";  
+
+var testerLink = document.querySelector(".tester-link");
+if (testerLink && loggedInUsername) {
+    testerLink.textContent = loggedInUsername;
+}
+</script>
+</body>
+</html>

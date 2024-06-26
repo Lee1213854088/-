@@ -1,0 +1,12 @@
+<!-- 申明继承那个模板，注意这句代码一般都会写在html文件的最上面 -->
+{% extends 'base.html' %}
+
+<!-- 调用title接口，编写里面的内容 -->
+{% block title %}
+index
+{% endblock %}
+
+<!-- 调用content接口，编写里面的内容 -->
+{% block content %}
+    <h1 style="background: green">index 子模板</h1>
+{% endblock %}

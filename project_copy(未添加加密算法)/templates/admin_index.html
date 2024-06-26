@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统</title>
+    <link rel="stylesheet" href="../static/css/layui.css">
+    <link rel="stylesheet" href="../static/css/glow.css">
+</head>
+<body style=" background: url(../static/img/bg6.jpg); background-size: cover;"></body>
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo layui-hide-xs layui-bg-black">虚拟银行管理系统</div>
+    <!-- 头部区域（可配合layui 已有的水平导航） -->
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+        <a href="javascript:;" class="tester-link">
+          tester
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="/sign_out">退出登录</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+        <a href="javascript:;">
+          <i class="layui-icon layui-icon-more-vertical"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+   <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <li class="layui-nav-item"><a href="./admin_index">首页</a></li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">账号管理</a>
+            <dl class="layui-nav-child">
+              <dd><a href="./users_manage">用户账号管理</a></dd>
+              <dd><a href="./admin_manage">管理员账号管理</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="./admin_deal">交易记录管理</a></li>
+        <li class="layui-nav-item"><a href="./account">账户金额查询</a></li>
+        <li class="layui-nav-item"><a href="./feedback">联系我们</a></li>
+      </ul>
+    </div>
+ </div>
+<!--搜索-->
+
+<div class="layui-container" style="width: 1070px; height: 500px;">
+  <form class="layui-form layui-row layui-col-space16" style="margin: 60px 10px 0px">
+    <div style="float: right; margin-right: 400px;">
+      <h1 class="glowIn">首页</h1>
+    </div>
+  </form>
+        <p class="glowIn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊敬的管理员，欢迎来到虚拟网上银行管理系统！本系统基于layui+flask框架开发，主要用于对虚拟网络交易金额信息、网银账号、用户账号密码等进行数据管理。
+          右方导航栏包含“账户金额查询”、“账号管理”、“交易管理”等操作。您还可以通过“联系我们”来提交提交相关意见和建议。感谢您的支持与理解。
+        </p>
+        <script src="../static/js/glow.js"></script>
+</div>
+
+<div class="layui-container"  style="width: 1070px;">
+    <table class="layui-hide" id="info"></table>
+</div>
+<script src="../static/js/layui.js"></script>
+
+
+<script>
+var loggedInUsername = "{{loggedInUsername}}";  // 请将此替换为实际的后端用户名变量
+
+var testerLink = document.querySelector(".tester-link");
+if (testerLink && loggedInUsername) {
+    testerLink.textContent = loggedInUsername;
+}
+
+</script>
+</body>
+</html>

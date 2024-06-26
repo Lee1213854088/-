@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统</title>
+    <link rel="stylesheet" href="../static/css/layui.css">
+    <link rel="stylesheet" href="../static/css/glow.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body style=" background: url(../static/img/bg6.jpg); background-size: cover;"></body>
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo layui-hide-xs layui-bg-black">虚拟银行管理系统</div>
+    <!-- 头部区域（可配合layui 已有的水平导航） -->
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+        <a href="javascript:;" class="tester-link">
+          tester
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="/sign_out">退出登录</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+        <a href="javascript:;">
+          <i class="layui-icon layui-icon-more-vertical"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <li class="layui-nav-item"><a href="./user_index">首页</a></li>
+        <li class="layui-nav-item"><a href="./user_manage">个人账号管理</a></li>
+        <li class="layui-nav-item"><a href="./pay">支付密码管理</a></li>
+        <li class="layui-nav-item"><a href="./user_deal">交易记录查询</a></li>
+        <li class="layui-nav-item"><a href="./user_account">账户金额查询</a></li>
+        <li class="layui-nav-item"><a href="./transfer">快速转账</a></li>
+        <li class="layui-nav-item"><a href="./feedback_user">联系我们</a></li>
+      </ul>
+    </div>
+ </div>
+
+
+<div class="layui-container" style="width: 1070px; height: 500px;">
+  <form class="layui-form layui-row layui-col-space16" style="margin: 60px 10px 0px">
+    <div style="float: right; margin-right: 400px;">
+      <h1 class="glowIn">联系我们</h1>
+    </div>
+  </form>
+  <p class="glowIn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊敬的用户，您可以通过本页来提交您对本网站的意见和建议。点击下方按钮即可提交您宝贵的建议！感谢您的理解与支持！
+  </p>
+  <script src="../static/js/glow.js"></script>
+  <form class="layui-form" action="" style="margin-top: 30px;">
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label"></label>
+          <div class="layui-input-block">
+            <textarea placeholder="请输入内容" class="layui-textarea" id="advice" name="advice"></textarea>
+          </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn" lay-submit lay-filter="advise">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<script src="../static/js/layui.js"></script>
+<script>
+var loggedInUsername = "{{loggedInUsername}}";  // 请将此替换为实际的后端用户名变量
+
+var testerLink = document.querySelector(".tester-link");
+if (testerLink && loggedInUsername) {
+    testerLink.textContent = loggedInUsername;
+}
+</script>
+
+<script>
+  layui.use('form', function () {
+    var form = layui.form;
+    form.on('submit(advise)', function (data) {
+        var advices = data.field.advice;
+        console.log(advices);
+        advise(advices);
+        return false;
+    });
+});
+
+
+function advise(advices) {
+    layui.use('layer', function () {
+        var layer = layui.layer;
+        var loggedInUsername = "{{ loggedInUsername }}";
+        // 发送 POST 请求到后端
+        $.ajax({
+            type: 'POST',
+            url: '/feedback_user',
+            data: {
+                loggedInUsername: loggedInUsername,
+                advices: advices
+            },
+            success: function (response) {
+                if (response.code === 0) {
+                    // 成功时的处理
+                    layer.msg('提交成功');
+                } else {
+                    // 失败时的处理
+                    layer.msg('提交失败: ' + response.msg);
+                }
+            }
+        });
+    });
+}
+
+</script>
+      
+</body>
+</html>
